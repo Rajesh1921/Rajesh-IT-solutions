@@ -44,7 +44,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background: linear-gradient(135deg, #ff7a00, #ffffff);
+    background-color: var(--bg-deep);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
