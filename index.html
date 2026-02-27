@@ -213,22 +213,26 @@
             </div>
         </div>
     </section>
-<section id="contact-form-section" style="padding: 60px 0; background: #0b0b0b; color: white; text-align: center;">
-    <div style="max-width: 600px; margin: 0 auto; padding: 20px; background: #1a1a1a; border-radius: 10px;">
-        <h2 style="margin-bottom: 20px;">Get In Touch</h2>
-        <form action="/submit-contact" method="POST">
-            <div style="margin-bottom: 15px;">
-                <input type="text" name="name" placeholder="Your Name" style="width: 100%; padding: 12px; border-radius: 5px; border: none;" required>
-            </div>
-            <div style="margin-bottom: 15px;">
-                <input type="email" name="email" placeholder="Your Email" style="width: 100%; padding: 12px; border-radius: 5px; border: none;" required>
-            </div>
-            <div style="margin-bottom: 15px;">
-                <textarea name="message" placeholder="How can we help?" style="width: 100%; padding: 12px; border-radius: 5px; border: none; height: 100px;" required></textarea>
-            </div>
-            <button type="submit" style="width: 100%; padding: 12px; background: #0078d4; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Send Message</button>
-        </form>
-    </div>
+<section id="contact" style="padding: 40px; background: #000; color: white; text-align: center;">
+    <h2 style="color: #00d4ff;">Get In Touch</h2>
+    <p>Send us a message and we'll get back to you shortly.</p>
+    
+    <form action="/submit-contact" method="POST" style="max-width: 500px; margin: 0 auto; text-align: left;">
+        <div style="margin-bottom: 15px;">
+            <label>Name</label>
+            <input type="text" name="name" style="width: 100%; padding: 10px; border-radius: 5px;" required>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label>Email</label>
+            <input type="email" name="email" style="width: 100%; padding: 10px; border-radius: 5px;" required>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label>Message</label>
+            <textarea name="message" style="width: 100%; padding: 10px; border-radius: 5px; height: 100px;" required></textarea>
+        </div>
+        <button type="submit" style="background: #00d4ff; color: black; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Send Message</button>
+    </form>
+</section>
 </section>
     
     <footer class="main-footer">
