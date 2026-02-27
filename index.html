@@ -213,7 +213,24 @@
             </div>
         </div>
     </section>
-
+<section id="contact-form-section" style="padding: 60px 0; background: #0b0b0b; color: white; text-align: center;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; background: #1a1a1a; border-radius: 10px;">
+        <h2 style="margin-bottom: 20px;">Get In Touch</h2>
+        <form action="/submit-contact" method="POST">
+            <div style="margin-bottom: 15px;">
+                <input type="text" name="name" placeholder="Your Name" style="width: 100%; padding: 12px; border-radius: 5px; border: none;" required>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <input type="email" name="email" placeholder="Your Email" style="width: 100%; padding: 12px; border-radius: 5px; border: none;" required>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <textarea name="message" placeholder="How can we help?" style="width: 100%; padding: 12px; border-radius: 5px; border: none; height: 100px;" required></textarea>
+            </div>
+            <button type="submit" style="width: 100%; padding: 12px; background: #0078d4; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Send Message</button>
+        </form>
+    </div>
+</section>
+    
     <footer class="main-footer">
         <div class="footer-social-bar">
             <div class="container">
