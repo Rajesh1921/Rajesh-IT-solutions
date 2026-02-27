@@ -1,0 +1,10 @@
+{
+    "name": "rajesh-it-solutions",
+    "version": "1.0.0",
+    "description": "Static website for Rajesh IT Solutions",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {}
+}
