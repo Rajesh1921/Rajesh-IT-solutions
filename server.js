@@ -10,7 +10,7 @@ const config = process.env.DB_CONNECTION_STRING;
 
 app.post('/submit-contact', async (req, res) => {
     try {
-        let pool = await sql.connect(config);
+        let pool = await sql.connect(process.env.DB_CONNECTION_STRING);
         await pool.request()
             .input('FullName', sql.NVarChar, req.body.name)
             .input('Email', sql.NVarChar, req.body.email)
