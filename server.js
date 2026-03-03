@@ -6,11 +6,12 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 
-const config = process.env.DB_CONNECTION_STRING;
-
+// Remove the 'const config' line entirely
 app.post('/submit-contact', async (req, res) => {
     try {
-        let pool = await sql.connect(process.env.DB_CONNECTION_STRING);
+        // This force-feeds the string directly to the driver
+        let pool = await sql.connect(process.env.DB_CONNECTION_STRING); 
+        const request = new sql.Request(pool);
         await pool.request()
             .input('FullName', sql.NVarChar, req.body.name)
             .input('Email', sql.NVarChar, req.body.email)
