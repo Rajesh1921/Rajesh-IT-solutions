@@ -84,8 +84,9 @@ h4,
 
 .top-bar .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    gap: 3rem;
 }
 
 .top-info {
@@ -151,28 +152,36 @@ h4,
 .logo {
     text-decoration: none;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
+    margin-top: 5px;
 }
 
-.logo-crop {
-    width: 250px;
-    height: 60px; /* Generous height for descenders */
-    overflow: hidden;
-    position: relative;
+.logo-main {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: white;
     display: flex;
-    justify-content: center;
     align-items: center;
-    mix-blend-mode: lighten; /* Drops the solid background by blending with the black header! */
+    letter-spacing: 0.05em;
 }
 
-.brand-logo {
-    position: absolute;
-    width: 440px; /* Scaling down original 1024x1024 image */
-    height: 440px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Locks image absolutely to center focal point */
-    filter: brightness(1.2) contrast(1.1); /* Supercharges visibility of the icon edges */
+.logo-cloud {
+    color: var(--secondary); /* The cyan glow */
+    font-size: 2.5rem;
+    margin: 0 -0.4rem 0 -0.1rem; /* Pulls R and JESH extremely tightly around the cloud! */
+    filter: drop-shadow(0 0 10px rgba(0, 188, 242, 0.7));
+}
+
+.logo-sub {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 0.44em; /* Wide tracking to match width of "RAJESH" to "H" */
+    margin-top: 0.3rem;
+    padding-left: 0.2rem;
+    text-transform: uppercase;
 }
 
 .nav-links {
@@ -943,14 +952,20 @@ h4,
         padding: 0 1.2rem;
     }
 
-    .logo-crop {
-        width: 170px; /* Scaled down perfectly for mobile navigation */
-        height: 45px;
+    .logo-main {
+        font-size: 1.6rem;
+        letter-spacing: 0.05em;
     }
 
-    .brand-logo {
-        width: 300px; /* Maintain scale proportionally */
-        height: 300px;
+    .logo-cloud {
+        font-size: 1.5rem;
+        margin: 0 -0.2rem 0 -0.1rem;
+    }
+    
+    .logo-sub {
+        font-size: 0.55rem;
+        letter-spacing: 0.4em;
+        margin-top: 0.2rem;
     }
     
     .menu-toggle {
