@@ -931,8 +931,14 @@ h4,
         display: none;
     }
 
+    .container {
+        padding: 0 1.2rem;
+    }
+
     .logo {
-        font-size: 1.5rem;
+        font-size: 1.15rem;
+        white-space: nowrap;
+        letter-spacing: -0.02em;
     }
     
     .menu-toggle {
@@ -991,8 +997,9 @@ h4,
     }
 
     .hero p {
-        font-size: 1rem;
-        margin-bottom: 2rem;
+        font-size: 0.95rem;
+        margin-bottom: 2.5rem;
+        padding: 0 0.5rem;
     }
 
     .hero-btns {
@@ -1008,15 +1015,23 @@ h4,
         justify-content: center;
     }
 
-    .azure-visual {
-        width: 300px;
-        height: 300px;
-        margin: 0 auto;
+    .hero-visual {
+        transform: scale(0.65);
+        transform-origin: top center;
+        height: 350px;
+        margin-top: 1rem;
+    }
+    
+    .azure-ecosystem {
+        width: 100%;
     }
 
-    .cloud-core {
-        width: 180px;
-        height: 130px;
+    .floating-contact {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
     }
 
     .section {
