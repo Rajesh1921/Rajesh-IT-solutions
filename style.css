@@ -1,23 +1,23 @@
 :root {
     /* Premium Color Palette - HSL for better control */
-    --accent: 210, 100%, 55%;
-    /* Pure Azure */
-    --accent-glow: 210, 100%, 55%, 0.3;
-    --primary: hsl(var(--accent));
-    --secondary: hsl(35, 100%, 55%);
-    /* Success/Warning Gold */
+    --accent: 206, 100%, 42%;
+    /* Microsoft Azure Blue */
+    --accent-glow: 206, 100%, 42%, 0.3;
+    --primary: #0078D4;
+    --secondary: #00BCF2;
+    /* Cyan for accents */
 
     /* Dark Surface System */
     --bg-white: #ffffff;
-    --bg-deep: #01060b;
-    /* Near black depth */
-    --bg-surface: rgba(13, 25, 41, 0.7);
+    --bg-deep: #000b18;
+    /* Near black azure depth */
+    --bg-surface: rgba(0, 15, 30, 0.7);
     /* Glass surface */
-    --bg-card: rgba(20, 35, 55, 0.5);
+    --bg-card: rgba(0, 20, 40, 0.5);
 
     /* Text */
     --text-primary: #ffffff;
-    --text-secondary: #94a3b8;
+    --text-secondary: #b3c5d7;
     --text-muted: #64748b;
 
     /* Layout */
@@ -203,6 +203,10 @@ h4,
     width: 100%;
 }
 
+.menu-toggle {
+    display: none;
+}
+
 /* --- Hero Section --- */
 .hero {
     position: relative;
@@ -214,27 +218,33 @@ h4,
     overflow: hidden;
 }
 
-/* Background Data Mesh */
+/* Animated Cyber/Azure Grid Background */
 .bg-mesh {
     position: absolute;
     inset: 0;
-    
     z-index: 1;
+    background-image: 
+        linear-gradient(rgba(0, 120, 212, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 120, 212, 0.08) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform-origin: center;
+    transform: perspective(1000px) rotateX(60deg) scale(2.5) translateY(-50px) translateZ(-200px);
+    animation: gridFlow 15s linear infinite;
+    opacity: 0.7;
 }
 
-/* Animated Background Mesh */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center 30%, transparent 0%, var(--bg-deep) 70%);
+    z-index: 2;
+    pointer-events: none;
+}
 
-
-@keyframes pulse {
-    0% {
-        opacity: 0.4;
-        transform: scale(1);
-    }
-
-    100% {
-        opacity: 0.8;
-        transform: scale(1.2);
-    }
+@keyframes gridFlow {
+    0% { transform: perspective(1000px) rotateX(60deg) scale(2.5) translateY(0) translateZ(-200px); }
+    100% { transform: perspective(1000px) rotateX(60deg) scale(2.5) translateY(50px) translateZ(-200px); }
 }
 
 .hero .container {
@@ -325,107 +335,155 @@ h4,
     transform: translateY(-5px);
 }
 
-/* --- Azure Visual Element V2 --- */
+/* --- Premium Azure Ecosystem Animation --- */
 .hero-visual {
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    z-index: 10;
 }
 
-.azure-visual {
+.azure-ecosystem {
+    position: relative;
     width: 450px;
     height: 450px;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
-.cloud-core {
-    width: 260px;
-    height: 190px;
-    background: linear-gradient(135deg, rgba(0, 145, 255, 0.4) 0%, rgba(0, 78, 140, 0.2) 100%);
-    border-radius: 110px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 5;
-    box-shadow:
-        inset 0 0 40px rgba(255, 255, 255, 0.2),
-        0 0 80px rgba(0, 145, 255, 0.5),
-        0 20px 40px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    animation: float 6s ease-in-out infinite;
+.azure-core {
+    width: 130px;
+    height: 130px;
+    background: radial-gradient(circle, #00BCF2 0%, #0078D4 70%);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 4.5rem;
+    color: white;
+    box-shadow: 0 0 50px rgba(0, 188, 242, 0.5), inset 0 0 20px rgba(255,255,255,0.6);
+    z-index: 10;
+    animation: corePulse 3s ease-in-out infinite alternate;
+    position: relative;
 }
 
-.cloud-core::after {
+.azure-core::before {
     content: '';
     position: absolute;
-    top: 15%;
-    left: 15%;
-    width: 30%;
-    height: 30%;
-    background: rgba(255, 255, 255, 0.3);
-    filter: blur(10px);
+    inset: -20px;
     border-radius: 50%;
+    border: 2px dashed rgba(0, 188, 242, 0.4);
+    animation: spin 10s linear infinite;
 }
 
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translate(-50%, -50%) translateY(0);
-    }
-
-    50% {
-        transform: translate(-50%, -50%) translateY(-30px);
-    }
+@keyframes corePulse {
+    0% { transform: scale(1); box-shadow: 0 0 30px rgba(0, 188, 242, 0.4); }
+    100% { transform: scale(1.05); box-shadow: 0 0 70px rgba(0, 188, 242, 0.8), inset 0 0 30px rgba(255,255,255,0.8); }
 }
 
-.cloud-orbits {
+.azure-orbit {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
     border-radius: 50%;
-    border: 1px dashed rgba(255, 255, 255, 0.1);
-    animation: spin 30s linear infinite;
+    transform-style: preserve-3d;
+}
+
+.orbit-1 {
+    width: 280px;
+    height: 280px;
+    border: 1.5px solid rgba(0, 188, 242, 0.2);
+    animation: orbitSpin 20s linear infinite;
+}
+
+.orbit-2 {
+    width: 420px;
+    height: 420px;
+    border: 1px dashed rgba(0, 120, 212, 0.3);
+    animation: orbitSpinRev 35s linear infinite;
+}
+
+@keyframes orbitSpin {
+    0% { transform: translate(-50%, -50%) rotateX(65deg) rotateZ(0deg); }
+    100% { transform: translate(-50%, -50%) rotateX(65deg) rotateZ(360deg); }
+}
+
+@keyframes orbitSpinRev {
+    0% { transform: translate(-50%, -50%) rotateX(65deg) rotateZ(360deg); }
+    100% { transform: translate(-50%, -50%) rotateX(65deg) rotateZ(0deg); }
+}
+
+.azure-node {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background: var(--bg-deep);
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+    font-size: 1.4rem;
+    box-shadow: 0 0 20px rgba(0, 120, 212, 0.5), inset 0 0 10px rgba(0, 188, 242, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.azure-node:hover {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 0 30px rgba(0, 188, 242, 0.8);
+    transform: scale(1.2) !important;
+}
+
+.orbit-1 .node-vm { top: -27.5px; left: calc(50% - 27.5px); animation: keepUpright1 20s linear infinite reverse; }
+.orbit-1 .node-db { bottom: -27.5px; left: calc(50% - 27.5px); animation: keepUpright1 20s linear infinite reverse; }
+
+.orbit-2 .node-sec { top: 15%; left: 0px; animation: keepUpright2 35s linear infinite reverse; }
+.orbit-2 .node-net { bottom: 15%; right: 0px; animation: keepUpright2 35s linear infinite reverse; }
+.orbit-2 .node-ai { bottom: -27.5px; left: calc(50% - 27.5px); animation: keepUpright2 35s linear infinite reverse; }
+
+@keyframes keepUpright1 {
+    0% { transform: rotateZ(0deg) rotateX(-65deg); }
+    100% { transform: rotateZ(-360deg) rotateX(-65deg); }
+}
+
+@keyframes keepUpright2 {
+    0% { transform: rotateZ(-360deg) rotateX(-65deg); }
+    100% { transform: rotateZ(0deg) rotateX(-65deg); }
+}
+
+.azure-node span {
+    position: absolute;
+    bottom: -30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    background: rgba(0, 11, 24, 0.8);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 188, 242, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.azure-node:hover span {
+    opacity: 1;
+    visibility: visible;
+    bottom: -35px;
 }
 
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.orbit-node {
-    width: 14px;
-    height: 14px;
-    background: var(--primary);
-    border-radius: 50%;
-    position: absolute;
-    box-shadow: 0 0 20px var(--primary);
-}
-
-.orbit-node:nth-child(1) {
-    top: 0%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.orbit-node:nth-child(2) {
-    bottom: 15%;
-    right: 10%;
-}
-
-.orbit-node:nth-child(3) {
-    bottom: 15%;
-    left: 10%;
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 /* --- Stats Section --- */
@@ -635,8 +693,87 @@ h4,
     color: var(--primary);
 }
 
+.form-container {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.form-title {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.form-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background: rgba(0, 11, 24, 0.8);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: white;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(0, 120, 212, 0.4);
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-submit {
+    margin-top: 1rem;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+}
+
 .main-footer {
-    background: #000;
+    background: var(--bg-deep);
     padding: 8rem 0 4rem;
     border-top: 1px solid var(--glass-border);
 }
@@ -669,6 +806,51 @@ h4,
 }
 
 .footer-col a:hover {
+    color: var(--primary);
+}
+
+/* Secondary Horizontal Footer Layout */
+.footer-divider {
+    height: 1px;
+    background: var(--glass-border);
+    margin: 4rem 0;
+}
+
+.footer-secondary-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.footer-sub-col h4 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.sub-col-lists {
+    display: flex;
+    gap: 4rem;
+}
+
+.sub-col-lists ul {
+    list-style: none;
+}
+
+.sub-col-lists li {
+    margin-bottom: 0.8rem;
+}
+
+.sub-col-lists a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.95rem;
+}
+
+.sub-col-lists a:hover {
     color: var(--primary);
 }
 
@@ -742,46 +924,116 @@ h4,
 
 @media (max-width: 768px) {
     .section-title {
-        font-size: 2.5rem;
-    }
-
-    .nav-links {
-        display: none;
+        font-size: 2.2rem;
     }
 
     .top-info {
         display: none;
     }
-}
-@media (max-width: 768px) {
 
-  .container {
-    width: 100%;
-    flex-direction: column;
-  }
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .menu-toggle {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: white;
+        z-index: 2500;
+    }
 
-  .left, .right {
-    width: 100%;
-  }
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(1, 6, 11, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease;
+        z-index: 2050;
+        backdrop-filter: blur(15px);
+        margin: 0;
+        padding: 0;
+    }
 
-  h1 {
-    font-size: 22px;
-  }
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+    
+    .nav-links a {
+        font-size: 1.5rem;
+    }
 
-  p {
-    font-size: 14px;
-  }
+    .hero {
+        padding: 8rem 0 4rem;
+        text-align: center;
+    }
+    
+    .hero .container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
 
-}
-@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
 
-  /* Make ALL flex layouts vertical */
-  .container,
-  .row,
-  .header,
-  .hero,
-  .section {
-    flex-direction: column;
-  }
+    .profile-intro {
+        margin-top: 2rem;
+    }
 
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .azure-visual {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+
+    .cloud-core {
+        width: 180px;
+        height: 130px;
+    }
+
+    .section {
+        padding: 5rem 0;
+    }
+
+    .footer-main-grid {
+        gap: 2rem;
+    }
+
+    .footer-secondary-grid {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .sub-col-lists {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }

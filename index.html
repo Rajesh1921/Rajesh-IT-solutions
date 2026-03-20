@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,11 +20,11 @@
     <div class="top-bar">
         <div class="container container-nav">
             <div class="top-info">
-                <span><i class="fa-regular fa-clock"></i> 8:00 - 21:00 Mon - Sat</span>
+                <span><i class="fa-regular fa-clock"></i> Open 24 Hours</span>
                 <span><i class="fa-solid fa-phone-volume"></i> +91 9666532440</span>
             </div>
             <div class="top-social">
-                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/in/rajesh-pittala-a1832621b" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
                 <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
@@ -32,6 +34,9 @@
     <nav class="navbar">
         <div class="container container-nav">
             <a href="#" class="logo"><i class="fa-solid fa-cloud-bolt"></i> RAJESH IT SOLUTIONS<span>.</span></a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
             <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#expertise">Service</a></li>
@@ -61,12 +66,18 @@
                 </div>
             </div>
             <div class="hero-visual fade-in">
-                <div class="azure-visual">
-                    <div class="cloud-core"></div>
-                    <div class="cloud-orbits">
-                        <div class="orbit-node"></div>
-                        <div class="orbit-node"></div>
-                        <div class="orbit-node"></div>
+                <div class="azure-ecosystem">
+                    <div class="azure-core">
+                        <i class="fa-brands fa-microsoft"></i>
+                    </div>
+                    <div class="azure-orbit orbit-1">
+                        <div class="azure-node node-vm"><i class="fa-solid fa-server"></i><span>Compute</span></div>
+                        <div class="azure-node node-db"><i class="fa-solid fa-database"></i><span>SQL</span></div>
+                    </div>
+                    <div class="azure-orbit orbit-2">
+                        <div class="azure-node node-sec"><i class="fa-solid fa-shield-halved"></i><span>Security</span></div>
+                        <div class="azure-node node-net"><i class="fa-solid fa-network-wired"></i><span>VNet</span></div>
+                        <div class="azure-node node-ai"><i class="fa-solid fa-microchip"></i><span>AI</span></div>
                     </div>
                 </div>
             </div>
@@ -180,7 +191,7 @@
                             <span class="icon"><i class="fa-solid fa-envelope-circle-check"></i></span>
                             <div>
                                 <h4>Primary Email</h4>
-                                <p><a href="mailto:admin2@saxon.ai">admin2@saxon.ai</a></p>
+                                <p><a href="mailto:rajeshpittala767@gmail.com">rajeshpittala767@gmail.com</a></p>
                             </div>
                         </div>
                         <div class="contact-card glass">
@@ -200,46 +211,40 @@
                     </div>
 
                     <div class="social-links">
-                        <a href="#" class="social-btn glass">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/rajesh-pittala-a1832621b" target="_blank" class="social-btn glass">LinkedIn</a>
                         <a href="#" class="social-btn glass">Facebook</a>
                     </div>
                 </div>
                 <div class="address-visual fade-in">
-                    <div class="map-placeholder glass">
-                        <div class="office-tag">Saxon AI HQ</div>
-                        <p>N-Heights Building, Software Units Layout,<br>Madhapur, Hyderabad, 500081</p>
+                    <div class="form-container glass">
+                        <h3 class="form-title">Send a Message</h3>
+                        <p class="form-subtitle">We'll get back to you shortly.</p>
+                        <form action="/submit-contact" method="POST" class="contact-form">
+                            <div class="input-group">
+                                <label>Name</label>
+                                <input type="text" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Email</label>
+                                <input type="email" name="email" placeholder="john@example.com" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Message</label>
+                                <textarea name="message" placeholder="How can we help?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit">Send Message <i class="fa-regular fa-paper-plane"></i></button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<section id="contact" style="padding: 40px; background: #000; color: white; text-align: center;">
-    <h2 style="color: #00d4ff;">Get In Touch</h2>
-    <p>Send us a message and we'll get back to you shortly.</p>
-    
-    <form action="/submit-contact" method="POST" style="max-width: 500px; margin: 0 auto; text-align: left;">
-        <div style="margin-bottom: 15px;">
-            <label>Name</label>
-            <input type="text" name="name" style="width: 100%; padding: 10px; border-radius: 5px;" required>
-        </div>
-        <div style="margin-bottom: 15px;">
-            <label>Email</label>
-            <input type="email" name="email" style="width: 100%; padding: 10px; border-radius: 5px;" required>
-        </div>
-        <div style="margin-bottom: 15px;">
-            <label>Message</label>
-            <textarea name="message" style="width: 100%; padding: 10px; border-radius: 5px; height: 100px;" required></textarea>
-        </div>
-        <button type="submit" style="background: #00d4ff; color: black; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Send Message</button>
-    </form>
-</section>
-</section>
     
     <footer class="main-footer">
         <div class="footer-social-bar">
             <div class="container">
                 <div class="social-icons-row">
-                    <a href="#" class="si-link linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.linkedin.com/in/rajesh-pittala-a1832621b" target="_blank" class="si-link linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
                     <a href="#" class="si-link youtube"><i class="fa-brands fa-youtube"></i></a>
                     <a href="#" class="si-link instagram"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" class="si-link facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -294,7 +299,7 @@
                         <li><a href="#">FAQs</a></li>
                         <li><a href="#">Terms of Service</a></li>
                         <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="mailto:admin2@saxon.ai">Report Incident</a></li>
+                        <li><a href="mailto:rajeshpittala767@gmail.com">Report Incident</a></li>
                     </ul>
                 </div>
             </div>
