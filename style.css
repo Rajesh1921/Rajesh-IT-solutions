@@ -773,3 +773,15 @@ h4,
   }
 
 }
+@media (max-width: 768px) {
+
+  /* Make ALL flex layouts vertical */
+  .container,
+  .row,
+  .header,
+  .hero,
+  .section {
+    flex-direction: column;
+  }
+
+}
