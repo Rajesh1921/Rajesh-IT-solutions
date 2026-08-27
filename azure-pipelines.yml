@@ -1,0 +1,54 @@
+﻿trigger:
+  - main
+
+resources:
+  - repo: self
+
+variables:
+  # Azure Resource Manager Connection ID
+  azureSubscription: 'Azure-DevOps-Service-Connection'
+  # Azure Container Registry details
+  acrName: 'rajeshregistry'
+  imageRepository: 'rajesh-it-solutions'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
+  # Azure Web App Name
+  webAppName: 'rajesh-it-solutions-app'
+
+stages:
+  - stage: Build
+    displayName: Build and Push Image
+    jobs:
+      - job: Build
+        displayName: Build
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: Docker@2
+            displayName: Build and Push to ACR
+            inputs:
+              containerRegistry: '$(azureSubscription)'
+              repository: '$(imageRepository)'
+              command: 'buildAndPush'
+              Dockerfile: '$(dockerfilePath)'
+              tags: |
+                $(tag)
+                latest
+
+  - stage: Deploy
+    displayName: Deploy to Azure App Service
+    dependsOn: Build
+    condition: succeeded()
+    jobs:
+      - job: Deploy
+        displayName: Deploy
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: AzureWebAppContainer@1
+            displayName: Deploy Container to App Service
+            inputs:
+              azureSubscription: '$(azureSubscription)'
+              appName: '$(webAppName)'
+              containers: '$(acrName).azurecr.io/$(imageRepository):$(tag)'
+

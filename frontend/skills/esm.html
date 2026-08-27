@@ -1,0 +1,419 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajesh IT Solutions | Enterprise Service Management (ESM) Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0b0c10;
+            --card-bg: #111318;
+            --border: #1f2833;
+            --text-main: #f3f4f6;
+            --text-muted: #8f94a5;
+            --accent-color: #0078d4;
+            --success: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        /* Top Banner */
+        .ms-nav {
+            background-color: var(--accent-color);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 16px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .back-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            color: #fff;
+        }
+
+        /* Credential Header Container */
+        .credential-container {
+            max-width: 1400px;
+            width: 95%;
+            margin: 40px auto;
+            padding: 0 0 80px 0;
+        }
+
+        /* Profile Block */
+        .credential-header {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px;
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+        }
+
+        @media (max-width: 768px) {
+            .credential-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+        }
+
+        .logo-box {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+        }
+
+        .logo-box i {
+            font-size: 36px;
+            color: var(--accent-color);
+        }
+
+        .header-info {
+            flex-grow: 1;
+        }
+
+        .badge-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: rgba(11, 60, 109, 0.08);
+            color: var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            border: 1px solid rgba(11, 60, 109, 0.15);
+        }
+
+        .header-info h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            color: var(--text-main);
+        }
+
+        .header-info p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Layout Grid */
+        .credential-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .credential-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Metadata Column */
+        .meta-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+        }
+
+        .meta-card h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .meta-item {
+            margin-bottom: 20px;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .meta-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .verify-btn {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--accent-color);
+            color: #fff;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: opacity 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .verify-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Skills Column */
+        .skills-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+        }
+
+        .skills-card h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .skills-item {
+            padding: 20px;
+            background-color: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .skills-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skills-item h4 i {
+            color: var(--accent-color);
+        }
+
+        .skills-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Page 2 Layout styles */
+        .page2-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 40px;
+            margin-top: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+        }
+
+        .page2-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .prep-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 40px;
+        }
+
+        .prep-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        .prep-list li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-color);
+            font-size: 16px;
+        }
+
+        .role-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .role-badge {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        .role-badge:hover {
+            border-color: var(--accent-color);
+            background: rgba(11, 60, 109, 0.05);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="ms-nav">
+        <div style="max-width: 1400px; width: 95%; display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html#expertise" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+            <div style="font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.85);">Core Expertise Specialization</div>
+        </div>
+    </nav>
+
+    <main class="credential-container">
+        <!-- PAGE 1: Technical Stack Overview -->
+        <div class="credential-header">
+            <div class="logo-box">
+                <i class="fa-solid fa-building"></i>
+            </div>
+            <div class="header-info">
+                <div class="badge-status"><i class="fa-solid fa-circle-check"></i> Enterprise Expertise</div>
+                <h1>Enterprise Service Management (ESM)</h1>
+                <p>System Specialty Profile - Rajesh IT Solutions</p>
+            </div>
+        </div>
+
+        <div class="credential-grid">
+            <!-- Left Metadata Card -->
+            <div class="meta-card">
+                <h3>Technical Overview</h3>
+                
+                <div class="meta-item">
+                    <span class="meta-label">Domain</span>
+                    <span class="meta-value">Enterprise Operations</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Experience Scope</span>
+                    <span class="meta-value">Enterprise Systems Deployment</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Standard Alignment</span>
+                    <span class="meta-value">ITIL & Industry Best Practices</span>
+                </div>
+                <div class="meta-item" style="margin-bottom: 0;">
+                    <span class="meta-label">Technical Level</span>
+                    <span class="meta-value">Advanced Specialist</span>
+                </div>
+                
+                <a href="../contact.html" class="verify-btn">Request Service Consultation <i class="fa-regular fa-comments"></i></a>
+            </div>
+
+            <!-- Right Skills Card -->
+            <div class="skills-card">
+                <h3>Key Hands-On Tasks & Focus</h3>
+                <div class="skills-list">
+                    <div class="skills-item">
+                        <h4><i class="fa-solid fa-circle-check"></i> Unified Service Portals</h4>
+                        <p>Designing single-point request catalogs for HR, facilities, procurement, and administrative teams.</p>
+                    </div>
+                    <div class="skills-item">
+                        <h4><i class="fa-solid fa-circle-check"></i> Asset Lifecycle Tracking</h4>
+                        <p>Managing asset records, software licensing compliances, hardware lifecycles, and depreciation logs.</p>
+                    </div>
+                    <div class="skills-item">
+                        <h4><i class="fa-solid fa-circle-check"></i> Automated Workflows</h4>
+                        <p>Designing cross-department workflows (e.g. employee onboarding/offboarding) with automatic task triggers.</p>
+                    </div>
+                    <div class="skills-item">
+                        <h4><i class="fa-solid fa-circle-check"></i> Performance Analytics</h4>
+                        <p>Publishing service delivery reports, tracking bottle-necks, and auditing department response metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 2: Real-world Enterprise Projects & Tooling -->
+        <div class="page2-section">
+            <h3 class="page2-title"><i class="fa-solid fa-diagram-project" style="color: var(--accent-color); margin-right: 10px;"></i> Real-world Enterprise Projects (Saxon AI)</h3>
+            <ul class="prep-list">
+                <li>Onboarding Framework Automation: Consolidated HR and IT actions into a single automated onboarding form.</li><li>Enterprise Asset Auditing: Executed a license review of active SaaS programs to optimize subscription overhead.</li><li>Procurement Request Catalog: Designed centralized procurement flows that reduced internal approval times.</li>
+            </ul>
+
+            <h3 class="page2-title"><i class="fa-solid fa-screwdriver-wrench" style="color: var(--accent-color); margin-right: 10px;"></i> Associated Tools & Technologies</h3>
+            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.6; margin-bottom: 24px;">
+                Proficient in utilizing the following toolsets, applications, and configurations in active production environments:
+            </p>
+            <div class="role-grid">
+                <span class="role-badge">ServiceNow Developer</span><span class="role-badge">SharePoint Lists</span><span class="role-badge">Power Automate</span><span class="role-badge">Asset Management Tools</span>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+

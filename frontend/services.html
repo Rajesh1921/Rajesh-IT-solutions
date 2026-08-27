@@ -1,0 +1,497 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajesh IT Solutions | Managed IT Services & Infrastructure Support</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0b0c10;
+            --card-bg: #111318;
+            --border: #1f2833;
+            --text-main: #f3f4f6;
+            --text-muted: #8f94a5;
+            --accent-color: #0078d4;
+            --success: #10b981;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top Bar & Nav */
+        .top-bar {
+            background-color: #0b3c6d;
+            color: rgba(255, 255, 255, 0.85);
+            padding: 10px 0;
+            font-size: 13px;
+        }
+
+        .navbar {
+            background-color: var(--bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 14px 0;
+        }
+
+        /* Services Hero Section (Exact Match to Screenshot) */
+        .services-hero {
+            background: radial-gradient(circle at 80% 20%, rgba(0, 120, 212, 0.08) 0%, transparent 50%), var(--bg);
+            padding: 90px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .services-hero .container {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        @media (max-width: 968px) {
+            .services-hero .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .hero-left h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 46px;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero-left p {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 36px;
+            max-width: 580px;
+        }
+
+        .hero-left-btns {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-consultation {
+            background-color: #0b3c6d;
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(11,60,109,0.15);
+            cursor: pointer;
+        }
+
+        .btn-consultation:hover {
+            background-color: #082d52;
+            transform: translateY(-2px);
+        }
+
+        .btn-explore {
+            background-color: rgba(255,255,255,0.03); color: var(--text-main); border: 1px solid var(--border);
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-explore:hover {
+            background-color: rgba(255,255,255,0.03);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Right Card */
+        .hero-right-card {
+            background-color: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .tab-selector {
+            display: inline-flex;
+            gap: 8px;
+            background-color: rgba(255,255,255,0.03);
+            padding: 4px;
+            border-radius: 50px;
+            align-self: flex-start;
+        }
+
+        .tab-btn {
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background-color: #0b3c6d;
+            color: #ffffff;
+        }
+
+        .tab-btn.inactive {
+            background-color: transparent;
+            color: var(--text-muted);
+        }
+
+        .tab-description {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .tab-subcards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 480px) {
+            .tab-subcards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .subcard-item {
+            background-color: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .subcard-item:hover {
+            border-color: rgba(11,60,109,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .subcard-item h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .subcard-item p {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Detailed Services Catalog Grid */
+        .catalog-section {
+            padding: 80px 0;
+            background-color: var(--bg);
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .catalog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .catalog-card {
+            background-color: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            display: flex;
+            gap: 24px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+        }
+
+        .catalog-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(11,60,109,0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            background-color: var(--bg);
+        }
+
+        .catalog-icon {
+            width: 56px;
+            height: 56px;
+            background-color: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #0b3c6d;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .catalog-card:hover .catalog-icon {
+            background-color: rgba(11,60,109,0.08);
+        }
+
+        .catalog-content h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .catalog-content p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .catalog-link {
+            font-size: 13px;
+            font-weight: 700;
+            color: #0b3c6d;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container container-nav">
+            <div class="top-info">
+                <span><i class="fa-regular fa-clock"></i> Open 24 Hours</span>
+                <span><i class="fa-solid fa-phone-volume"></i> +91 96665 32440</span>
+            </div>
+            <div class="top-social">
+                <a href="https://www.linkedin.com/in/rajesh-pittala-a1832621b" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="container container-nav">
+            <a href="index.html" class="logo" aria-label="Rajesh IT Solutions">
+                <i class="fa-solid fa-cloud-bolt logo-cloud" aria-hidden="true"></i>
+                <div class="logo-text-block">
+                    <div class="logo-main">RAJESH</div>
+                    <div class="logo-sub"><span class="logo-line"></span>IT SOLUTIONS</div>
+                </div>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#hero">Home</a></li>
+                <li><a href="index.html#expertise">Solutions</a></li>
+                <li><a href="services.html" style="color: #0b3c6d;">Services</a></li>
+                <li><a href="index.html#certifications">Credentials</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Services Hero Section (Matches Screenshot) -->
+    <header class="services-hero">
+        <div class="container">
+            <div class="hero-left">
+                <h1>Simplifying Enterprise IT Infrastructure & Security</h1>
+                <p>End-to-end IT solutions covering infrastructure, cloud, security, and automation for modern enterprises.</p>
+                <div class="hero-left-btns">
+                    <a href="contact.html" class="btn-consultation">Get Consultation</a>
+                    <a href="#catalog" class="btn-explore">Explore Services</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-right-card">
+                    <div class="tab-selector">
+                        <button class="tab-btn active" id="tabEnterprise">Enterprise</button>
+                        <button class="tab-btn inactive" id="tabSMB">SMB</button>
+                    </div>
+                    <div class="tab-description" id="tabDesc">
+                        Future-ready architectures, secure networks, and intelligent collaboration experiences tailored for enterprises of every scale.
+                    </div>
+                    <div class="tab-subcards" id="tabSubcards">
+                        <div class="subcard-item">
+                            <h4>Unified Comms</h4>
+                            <p>Video, voice and seamless collaboration.</p>
+                        </div>
+                        <div class="subcard-item">
+                            <h4>Secure Infra</h4>
+                            <p>Zero trust, visibility and protection.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Detailed Services Catalog Section -->
+    <section id="catalog" class="catalog-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2 class="section-title-corporate">Managed Service Catalog</h2>
+                <p class="section-desc-corporate" style="margin-bottom: 0;">Select a specialized service category to examine implementation processes, SLAs, and active case study metrics.</p>
+            </div>
+
+            <div class="catalog-grid">
+                <!-- 1 -->
+                <a href="services/azure-infrastructure.html" class="catalog-card">
+                    <div class="catalog-icon"><i class="fa-solid fa-cloud-sun"></i></div>
+                    <div class="catalog-content">
+                        <h3>Azure Infrastructure</h3>
+                        <p>Designing secure Hub-and-Spoke networks, managing Entra ID governance, cost optimization policies, and deploying high-performance virtual machine nodes.</p>
+                        <span class="catalog-link">Explore Case Study <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <!-- 2 -->
+                <a href="services/m365-ecosystem.html" class="catalog-card">
+                    <div class="catalog-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                    <div class="catalog-content">
+                        <h3>M365 Ecosystem</h3>
+                        <p>Managing global email flow filters, Exchange connectors, Microsoft Teams collaboration channels, and Microsoft Purview sensitivity labeling policies.</p>
+                        <span class="catalog-link">Explore Case Study <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <!-- 3 -->
+                <a href="services/cyber-security.html" class="catalog-card">
+                    <div class="catalog-icon"><i class="fa-solid fa-user-shield"></i></div>
+                    <div class="catalog-content">
+                        <h3>Cyber Security</h3>
+                        <p>Deploying Endpoint Detection and Response (EDR) agents, Conditional Access security parameters, and incident forensic audits.</p>
+                        <span class="catalog-link">Explore Case Study <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <!-- 4 -->
+                <a href="services/system-operations.html" class="catalog-card">
+                    <div class="catalog-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <div class="catalog-content">
+                        <h3>System Operations</h3>
+                        <p>Managing Active Directory Domain Services forests, Group Policy consolidation audits, and custom PowerShell scripts for systems automation.</p>
+                        <span class="catalog-link">Explore Case Study <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="background-color: #0b3c6d; color: rgba(255, 255, 255, 0.8); padding: 30px 0; font-size: 13.5px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+        <p>&copy; 2026 Rajesh | System Administrator. All Rights Reserved. | <a href="admin.html" style="color: inherit; text-decoration: none; opacity: 0.6;">Admin Portal</a></p>
+    </footer>
+
+    <!-- Interactive script for tabs toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btnEnterprise = document.getElementById('tabEnterprise');
+            const btnSMB = document.getElementById('tabSMB');
+            const tabDesc = document.getElementById('tabDesc');
+            const tabSubcards = document.getElementById('tabSubcards');
+
+            const enterpriseData = {
+                desc: 'Future-ready architectures, secure networks, and intelligent collaboration experiences tailored for enterprises of every scale.',
+                sub1_title: 'Unified Comms',
+                sub1_desc: 'Video, voice and seamless collaboration.',
+                sub2_title: 'Secure Infra',
+                sub2_desc: 'Zero trust, visibility and protection.'
+            };
+
+            const smbData = {
+                desc: 'Cost-efficient cloud operations, managed support desk responses, and baseline email encryptions tailored for small & medium business environments.',
+                sub1_title: 'Core Support',
+                sub1_desc: 'Fast desktop and user troubleshooting.',
+                sub2_title: 'Cloud Backup',
+                sub2_desc: 'Automated files and records security.'
+            };
+
+            btnEnterprise.addEventListener('click', () => {
+                btnEnterprise.className = 'tab-btn active';
+                btnSMB.className = 'tab-btn inactive';
+                tabDesc.innerText = enterpriseData.desc;
+                tabSubcards.innerHTML = `
+                    <div class="subcard-item">
+                        <h4>${enterpriseData.sub1_title}</h4>
+                        <p>${enterpriseData.sub1_desc}</p>
+                    </div>
+                    <div class="subcard-item">
+                        <h4>${enterpriseData.sub2_title}</h4>
+                        <p>${enterpriseData.sub2_desc}</p>
+                    </div>
+                `;
+            });
+
+            btnSMB.addEventListener('click', () => {
+                btnSMB.className = 'tab-btn active';
+                btnEnterprise.className = 'tab-btn inactive';
+                tabDesc.innerText = smbData.desc;
+                tabSubcards.innerHTML = `
+                    <div class="subcard-item">
+                        <h4>${smbData.sub1_title}</h4>
+                        <p>${smbData.sub1_desc}</p>
+                    </div>
+                    <div class="subcard-item">
+                        <h4>${smbData.sub2_title}</h4>
+                        <p>${smbData.sub2_desc}</p>
+                    </div>
+                `;
+            });
+
+            // Smooth scroll for explore button
+            const btnExploreLink = document.querySelector('.btn-explore');
+            btnExploreLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector('#catalog');
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
